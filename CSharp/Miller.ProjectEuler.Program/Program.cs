@@ -16,6 +16,12 @@ namespace Miller.ProjectEuler.Program
 
             switch (problem)
             {
+                case 4:
+                    {
+                        var solution = Problem4.Solve();
+                        Console.WriteLine($"Problem 4 solution: {solution}");
+                        break;
+                    }
                 case 16:
                     {
                         var solution = Problem16.Solve(2, 1000);
