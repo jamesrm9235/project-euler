@@ -7,10 +7,10 @@ namespace Miller.ProjectEuler.Solutions
     /// <summary>
     /// https://projecteuler.net/problem=4
     /// </summary>
-    public static class Problem4
+    public static class Problem04
     {
         /// <summary>
-        /// Finds the largest palindrome form the product of 2 three-digit numbers.
+        /// Finds the largest palindrome from the product of two 3-digit numbers.
         /// </summary>
         /// <returns>906609</returns>
         public static int Solve()
@@ -31,7 +31,7 @@ namespace Miller.ProjectEuler.Solutions
         }
 
         /// <summary>
-        /// Finds the largest palindrome from the product of 2 two-digit numbers.
+        /// Finds the largest palindrome from the product of two 2-digit numbers.
         /// This is the example provided in the problem description.
         /// </summary>
         /// <returns>9009</returns>

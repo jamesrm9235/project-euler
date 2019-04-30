@@ -18,7 +18,7 @@ namespace Miller.ProjectEuler.Program
             {
                 case 4:
                     {
-                        var solution = Problem4.Solve();
+                        var solution = Problem04.Solve();
                         Console.WriteLine($"Problem 4 solution: {solution}");
                         break;
                     }
