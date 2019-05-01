@@ -28,6 +28,12 @@ namespace Miller.ProjectEuler.Program
                         Console.WriteLine($"Problem 16 solution: {solution}");
                         break;
                     }
+                case 17:
+                    {
+                        var solution = Problem17.Solve();
+                        Console.WriteLine($"Problem 17 solution: {solution}");
+                        break;
+                    }
                 case 20:
                     {
                         var solution = Problem20.Solve(100);
