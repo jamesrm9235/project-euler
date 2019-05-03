@@ -16,6 +16,26 @@ namespace Miller.ProjectEuler.Program
 
             switch (problem)
             {
+                case 1:
+                    {
+                        // Solve with linq
+                        var watch = Stopwatch.StartNew();
+                        var solution1 = Problem01.SolveWithLinq(1000);
+                        watch.Stop();
+                        var linqElapsed = watch.Elapsed;
+
+                        // Solve with loop
+                        watch = Stopwatch.StartNew();
+                        var solution2 = Problem01.SolveWithLoop(1000);
+                        watch.Stop();
+                        var loopElapsed = watch.Elapsed;
+
+                        Console.WriteLine($"Problem 1 solution (with linq): {solution1}");
+                        Console.WriteLine($"Elapsed: {linqElapsed}");
+                        Console.WriteLine($"Problem 1 solution (with loop): {solution2}");
+                        Console.WriteLine($"Elapsed: {loopElapsed}");
+                        break;
+                    }
                 case 4:
                     {
                         var solution = Problem04.Solve();
