@@ -1,4 +1,6 @@
+using AutoFixture;
 using NUnit.Framework;
+using System;
 
 namespace Miller.ProjectEuler.Solutions.Tests
 {
@@ -6,11 +8,35 @@ namespace Miller.ProjectEuler.Solutions.Tests
     public class Problem01Test
     {
         [Test]
+        public void IsMultiple_ThrowsArgumentException_WhenXIs0()
+        {
+            // Arrange
+            var fixture = new Fixture();
+            var x = 0;
+            var y = fixture.Create<int>();
+
+            // Act & Assert
+            Assert.Throws(typeof(ArgumentException), () => Problem01.IsMultipleOf(x, y));
+        }
+
+        [Test]
+        public void IsMultiple_ThrowsArgumentException_WhenYIs0()
+        {
+            // Arrange
+            var fixture = new Fixture();
+            var x = fixture.Create<int>();
+            var y = 0;
+
+            // Act & Assert
+            Assert.Throws(typeof(ArgumentException), () => Problem01.IsMultipleOf(x, y));
+        }
+
+        [Test]
         public void IsMultipleOf_ReturnsTrue_WhenXIsAMultipleOf3LessThan10(
             [Values(3, 6, 9)] int x,
             [Values(3)] int y)
         {
-            // Arrange.
+            // Arrange
 
             // Act
             var actual = Problem01.IsMultipleOf(x, y);
@@ -24,7 +50,7 @@ namespace Miller.ProjectEuler.Solutions.Tests
             [Values(5)] int x,
             [Values(5)] int y)
         {
-            // Arrange.
+            // Arrange
 
             // Act
             var actual = Problem01.IsMultipleOf(x, y);
@@ -38,7 +64,7 @@ namespace Miller.ProjectEuler.Solutions.Tests
             [Values(1, 2, 4, 5, 7, 8)] int x,
             [Values(3)] int y)
         {
-            // Arrange.
+            // Arrange
 
             // Act
             var actual = Problem01.IsMultipleOf(x, y);
@@ -52,7 +78,7 @@ namespace Miller.ProjectEuler.Solutions.Tests
             [Values(1, 2, 3, 4, 6, 7, 8, 9)] int x,
             [Values(5)] int y)
         {
-            // Arrange.
+            // Arrange
 
             // Act
             var actual = Problem01.IsMultipleOf(x, y);
@@ -62,16 +88,15 @@ namespace Miller.ProjectEuler.Solutions.Tests
         }
 
         [Test]
-        public void SolveWithLoop_Returns23_WhenCountIs10()
+        public void SolveWithLinq_ThrowsArgumentException_WhenCountIsLessThanOrEqualToZero()
         {
             // Arrange
-            var count = 10;
-
-            // Act
-            var actual = Problem01.SolveWithLoop(count);
-
-            // Assert
-            Assert.AreEqual(23, actual);
+            var fixture = new Fixture();
+            fixture.Customizations.Add(new RandomNumericSequenceGenerator(-10, 0));
+            var count = fixture.Create<int>();
+        
+            // Act & Assert
+            Assert.Throws(typeof(ArgumentException), () => Problem01.SolveWithLinq(count));
         }
 
         [Test]
@@ -79,25 +104,13 @@ namespace Miller.ProjectEuler.Solutions.Tests
         {
             // Arrange
             var count = 10;
-        
+            var expected = 23;
+
             // Act
             var actual = Problem01.SolveWithLinq(count);
-        
-            // Assert
-            Assert.AreEqual(23, actual);
-        }
 
-        [Test]
-        public void SolveWithLoop_Returns233168_WhenCountIs1000()
-        {
-            // Arrange
-            var count = 1000;
-        
-            // Act
-            var actual = Problem01.SolveWithLoop(count);
-        
             // Assert
-            Assert.AreEqual(233168, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
@@ -105,12 +118,53 @@ namespace Miller.ProjectEuler.Solutions.Tests
         {
             // Arrange
             var count = 1000;
-        
+            var expected = 233168;
+
             // Act
             var actual = Problem01.SolveWithLinq(count);
-        
+
             // Assert
-            Assert.AreEqual(233168, actual);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void SolveWithLoop_ThrowsArgumentException_WhenCountIsLessThanOrEqualToZero()
+        {
+            // Arrange
+            var fixture = new Fixture();
+            fixture.Customizations.Add(new RandomNumericSequenceGenerator(-10, 0));
+            var count = fixture.Create<int>();
+
+            // Act & Assert
+            Assert.Throws(typeof(ArgumentException), () => Problem01.SolveWithLoop(count));
+        }
+
+        [Test]
+        public void SolveWithLoop_Returns23_WhenCountIs10()
+        {
+            // Arrange
+            var count = 10;
+            var expected = 23;
+
+            // Act
+            var actual = Problem01.SolveWithLoop(count);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void SolveWithLoop_Returns233168_WhenCountIs1000()
+        {
+            // Arrange
+            var count = 1000;
+            var expected = 233168;
+
+            // Act
+            var actual = Problem01.SolveWithLoop(count);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
