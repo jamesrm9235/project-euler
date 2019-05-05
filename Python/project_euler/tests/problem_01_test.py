@@ -1,8 +1,7 @@
 """https://projecteuler.net/problem=1"""
 from random import randint
 import unittest
-from problem_01 import is_multiple, solve
-
+from project_euler.problem_01 import is_multiple, solve
 
 class Problem01Test(unittest.TestCase):
     """The test fixture for problem 01."""
