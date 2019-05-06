@@ -1,13 +1,13 @@
 """https://projecteuler.net/problem=3"""
 import unittest
-from project_euler.problem_03 import is_prime
+from project_euler.problem_03 import is_prime, solve
 
 
 class Problem03Test(unittest.TestCase):
     """The test fixture for problem 03."""
 
     def test_is_prime_with_1(self):
-        """Test that returns False when number is 1."""
+        """Returns False when the number is 1."""
         number = 1
 
         actual = is_prime(number)
@@ -35,3 +35,21 @@ class Problem03Test(unittest.TestCase):
                 actual = is_prime(number)
 
                 self.assertFalse(actual)
+
+    def test_solve_with_example_problem(self):
+        """Tests the example in the problem description."""
+        expected = 29
+        number = 13195
+
+        actual = solve(number)
+
+        self.assertEqual(expected, actual)
+
+    def test_solve_with_600851475143(self):
+        """Test that returns the answer to the problem."""
+        expected = 6857
+        number = 600851475143
+
+        actual = solve(number)
+
+        self.assertEqual(expected, actual)

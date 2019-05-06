@@ -2,11 +2,18 @@
 import math
 
 
-def find_largest_prime_factor(number):
-    """
-    Finds the factors of the number
-    and then tests each one for primality
-    and returns the largest prime factor.
+def solve(number: int) -> int:
+    """Solves problem 3.
+
+    Finds the factors of the number and returns
+    the largest prime from those factors.
+    The factors are checked in reverse.
+
+    Arguments:
+        number {int} -- The number that the factors are derived from.
+
+    Returns:
+        int -- The largest prime factor of the number.
     """
     factors = trial_division(number)
     for factor in factors[::-1]:
