@@ -2,6 +2,26 @@
 import math
 
 
+def is_prime(number: int) -> bool:
+    """Checks whether the number is prime.
+
+    Evaluates whether the number is prime
+    by computing its factors by trial division
+    and checking that one is the only factor.
+
+    Arguments:
+        number {int} -- The number to check for primality.
+
+    Returns:
+        bool -- True if the number is prime otherwise False.
+    """
+    if number == 1:
+        return False
+
+    factors = trial_division(number)
+    return len(factors) == 1 and factors[0] == 1
+
+
 def solve(number: int) -> int:
     """Solves problem 3.
 
@@ -33,23 +53,3 @@ def trial_division(number):
             factors.append(trial_divisor)
         trial_divisor += 1
     return factors
-
-
-def is_prime(number: int) -> bool:
-    """Checks whether the number is prime.
-
-    Evaluates whether the number is prime
-    by computing its factors by trial division
-    and checking that one is the only factor.
-
-    Arguments:
-        number {int} -- The number to check for primality.
-
-    Returns:
-        bool -- True if the number is prime otherwise False.
-    """
-    if number == 1:
-        return False
-
-    factors = trial_division(number)
-    return len(factors) == 1 and factors[0] == 1
