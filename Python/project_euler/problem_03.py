@@ -1,10 +1,6 @@
-"""
-The prime factors of 13195 are 5, 7, 13 and 29.
-
-What is the largest prime factor of the number 600851475143 ?
-"""
+"""https://projecteuler.net/problem=3"""
 import math
-import timeit
+
 
 def find_largest_prime_factor(number):
     """
@@ -16,6 +12,7 @@ def find_largest_prime_factor(number):
     for factor in factors[::-1]:
         if is_prime(factor):
             return factor
+
 
 def trial_division(number):
     """
@@ -30,16 +27,22 @@ def trial_division(number):
         trial_divisor += 1
     return factors
 
-def is_prime(number):
+
+def is_prime(number: int) -> bool:
+    """Checks whether the number is prime.
+
+    Evaluates whether the number is prime
+    by computing its factors by trial division
+    and checking that one is the only factor.
+
+    Arguments:
+        number {int} -- The number to check for primality.
+
+    Returns:
+        bool -- True if the number is prime otherwise False.
     """
-    Finds the factors of the number
-    and tests that the only factor is 1.
-    """
+    if number == 1:
+        return False
+
     factors = trial_division(number)
     return len(factors) == 1 and factors[0] == 1
-
-if __name__ == "__main__":
-    start = timeit.default_timer()
-    print find_largest_prime_factor(600851475143)
-    end = timeit.default_timer()
-    print end - start
