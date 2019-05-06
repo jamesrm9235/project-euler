@@ -1,55 +1,50 @@
 """https://projecteuler.net/problem=3"""
-import math
+from math import ceil, sqrt
 
 
-def is_prime(number: int) -> bool:
-    """Checks whether the number is prime.
+def is_prime(integer: int) -> bool:
+    """Checks whether the integer is prime.
 
-    Evaluates whether the number is prime
-    by computing its factors by trial division
-    and checking that one is the only factor.
+    Evaluates whether the argument is a prime
+    number by checking if each integer between
+    2 and the square root of the argument is a
+    factor.
 
     Arguments:
-        number {int} -- The number to check for primality.
+        integer {int} -- The integer to check for primality.
 
     Returns:
-        bool -- True if the number is prime otherwise False.
+        bool -- True if the integer is prime otherwise False.
     """
-    if number == 1:
+    if integer == 1:
         return False
+    divisor = 2
+    while divisor <= sqrt(integer):
+        if integer % divisor == 0:
+            return False
+        divisor += 1
+    return True
 
-    factors = trial_division(number)
-    return len(factors) == 1 and factors[0] == 1
 
-
-def solve(number: int) -> int:
+def solve(integer: int) -> int:
     """Solves problem 3.
 
-    Finds the factors of the number and returns
-    the largest prime from those factors.
-    The factors are checked in reverse.
+    Finds the largest prime of the argument
+    through trial division by checking
+    if the factor is a prime. The factors are
+    checked in reverse order and starts with
+    the square root of the integer.
 
     Arguments:
-        number {int} -- The number that the factors are derived from.
+        integer {int} -- The integer to be factored.
 
     Returns:
-        int -- The largest prime factor of the number.
+        int -- The largest prime factor of the integer if found.
     """
-    factors = trial_division(number)
-    for factor in factors[::-1]:
-        if is_prime(factor):
-            return factor
-
-
-def trial_division(number):
-    """
-    Uses brute-force to find factors
-    that are divisors of the number.
-    """
-    factors = []
-    trial_divisor = 1
-    while trial_divisor <= math.sqrt(number):
-        if number % trial_divisor == 0:
-            factors.append(trial_divisor)
-        trial_divisor += 1
-    return factors
+    prime = None
+    upper_factor = ceil(sqrt(integer))
+    for i in range(upper_factor, 0, -1):
+        if integer % i == 0 and is_prime(i):
+            prime = i
+            break
+    return prime
