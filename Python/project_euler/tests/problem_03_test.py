@@ -4,7 +4,7 @@ from project_euler.problem_03 import is_prime, solve
 
 
 class Problem03Test(unittest.TestCase):
-    """The test fixture for problem 03."""
+    """Test fixture for problem 03."""
 
     def test_is_prime_with_1(self):
         """Returns False when the number is 1."""
@@ -45,8 +45,8 @@ class Problem03Test(unittest.TestCase):
 
         self.assertEqual(expected, actual)
 
-    def test_solve_with_600851475143(self):
-        """Test that returns the answer to the problem."""
+    def test_solve(self):
+        """Test that solves the problem."""
         expected = 6857
         number = 600851475143
 
