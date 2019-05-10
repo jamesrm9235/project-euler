@@ -1,7 +1,7 @@
 """https://projecteuler.net/problem=4"""
 
 import unittest
-from project_euler.problem_04 import is_palindrome, reverse_integer
+from project_euler.problem_04 import is_palindrome, reverse_integer, solve
 
 
 class Problem04Test(unittest.TestCase):
@@ -31,4 +31,12 @@ class Problem04Test(unittest.TestCase):
         actual = reverse_integer(integer)
 
         self.assertIsInstance(actual, str)
+        self.assertEqual(expected, actual)
+
+    def test_solve(self):
+        """Test that solves the problem."""
+        expected = 906609
+
+        actual = solve()
+
         self.assertEqual(expected, actual)
