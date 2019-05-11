@@ -13,6 +13,7 @@ My solutions to [Project Euler ](https://projecteuler.net/) problems in C++, C#,
 |7|[10001st prime](https://projecteuler.net/problem=7)|:x:|:x:|:heavy_check_mark:|
 |8|[Largest product in a series](https://projecteuler.net/problem=8)|:x:|:x:|:heavy_check_mark:|
 |9|[Special Pythagorean triplet](https://projecteuler.net/problem=9)|:x:|:x:|:heavy_check_mark:|
+|10|[Summation of primes](https://projecteuler.net/problem=10)|:x:|:x:|:heavy_check_mark:|
 |16|[Power digit sum](https://projecteuler.net/problem=16)|:x:|:heavy_check_mark:|:x:|
 |17|[Number letter counts](https://projecteuler.net/problem=17)|:x:|:heavy_check_mark:|:x:|
 |20|[Factorial digit sum](https://projecteuler.net/problem=20)|:x:|:heavy_check_mark:|:x:|
