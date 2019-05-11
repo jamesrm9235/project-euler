@@ -6,6 +6,10 @@ from math import ceil, sqrt
 def is_prime(integer: int) -> bool:
     """Checks whether the integer is a prime by trial division.
 
+    The function will test divisors that are either one more
+    or one less than a multiple of six (i.e. 6n+1 and 6n-1)
+    in order to skip numbers that are multiples of 2 or 3.
+
     Arguments:
         integer {int} -- The integer to check for primality.
 
@@ -14,14 +18,18 @@ def is_prime(integer: int) -> bool:
     """
     if integer <= 1:
         return False
-
-    if integer == 2 or integer == 3:
+    if integer in (2, 3):
         return True
-
-    if integer % 2 == 0:
+    if integer % 2 == 0 or integer % 3 == 0:
         return False
 
-    for divisor in range(3, ceil(sqrt(integer)) + 2, 2):
+    divisor = 5
+    limit = ceil(sqrt(integer))
+    while divisor <= limit:
         if integer % divisor == 0:
             return False
+        divisor += 2  # Set to a number that is one more than a multiple of six.
+        if integer % divisor == 0:
+            return False
+        divisor += 4  # Set to a number one less than a multiple of six.
     return True
