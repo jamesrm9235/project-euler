@@ -19,7 +19,7 @@ def solve(count: int) -> int:
     if count <= 0:
         return 0
     if count == 1:
-        return 2 
+        return 2
     if count == 2:
         return 3
 
