@@ -26,7 +26,7 @@ def reverse_integer(integer: int) -> str:
 
 
 def solve() -> int:
-    """Finds the largest palindrome number from the product of two 3-digit numbers.
+    """Solves problem 4.
 
     Uses a nested for-loop to iterate from 999 to 100 and checks whether the product
     is a palindrome. The inner loop will not iterate to 99; it will iterate to the
