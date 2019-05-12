@@ -4,7 +4,7 @@ from math import ceil, sqrt
 from project_euler.utilities.primality import is_prime
 
 
-def solve(integer: int) -> int:
+def solve(integer: int = 600851475143) -> int:
     """Solves problem 3.
 
     Finds the largest prime of the argument
@@ -15,6 +15,7 @@ def solve(integer: int) -> int:
 
     Arguments:
         integer {int} -- The integer to be factored.
+        Default is 600851475143
 
     Returns:
         int -- The largest prime factor of the integer if found.

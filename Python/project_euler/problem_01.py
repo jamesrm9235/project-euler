@@ -1,13 +1,13 @@
 """https://projecteuler.net/problem=1"""
 
 
-def solve(count: int) -> int:
+def solve(count: int = 1000) -> int:
     """Solves problem 1.
 
     Computes the sum of all multiples of 3 or 5 less than the count.
 
     Arguments:
-        count {int} -- The number of integers to count.
+        count {int} -- The number of integers to count. Default is 1000.
 
     Raises:
         ValueError: Raised if the count is less than or equal to zero.

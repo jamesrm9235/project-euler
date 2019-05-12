@@ -3,7 +3,7 @@
 from project_euler.utilities.primality import is_prime
 
 
-def solve(count: int) -> int:
+def solve(count: int = 10001) -> int:
     """Solves problem 7.
 
     Counts prime numbers up to the count and stops
@@ -12,6 +12,7 @@ def solve(count: int) -> int:
 
     Arguments:
         count {int} -- The number of prime numbers to count.
+        Default is 10001.
 
     Returns:
         int -- The last prime number that was counted.

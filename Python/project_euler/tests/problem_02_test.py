@@ -10,8 +10,7 @@ class Problem02(unittest.TestCase):
     def test_solve(self):
         """Test that confirms the answer to the problem."""
         expected = 4613732
-        maximum = 4000000
 
-        actual = solve(maximum)
+        actual = solve()
 
         self.assertEqual(expected, actual)

@@ -1,7 +1,7 @@
 """https://projecteuler.net/problem=2"""
 
 
-def solve(maximum: int) -> int:
+def solve(maximum: int = 4000000) -> int:
     """Solves problem 2.
 
     Generates terms in the Fibonacci series without exceeding
@@ -11,6 +11,7 @@ def solve(maximum: int) -> int:
     Arguments:
         maximum {int} -- If the next term in the series
         would exceed this value, the series will terminate.
+        Default is 4000000.
 
     Returns:
         int -- The sum of all even terms in the series up to the maximum.

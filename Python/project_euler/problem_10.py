@@ -3,7 +3,7 @@
 from project_euler.utilities.primality import is_prime
 
 
-def solve(limit: int) -> int:
+def solve(limit: int = 2000000) -> int:
     """Solves problem 10.
 
     Computes the sum of all prime numbers less than the limit.
@@ -12,6 +12,7 @@ def solve(limit: int) -> int:
 
     Arguments:
         limit {int} -- Integers less than this number will be tested for primality.
+        Default is 2000000.
 
     Returns:
         int -- The sum of all primes less than the limit.
