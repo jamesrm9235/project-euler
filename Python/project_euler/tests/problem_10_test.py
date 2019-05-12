@@ -17,7 +17,7 @@ class Problem10Test(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_solve(self):
-        """Test that solves the problem."""
+        """Test that confirms the answer to the problem."""
         expected = 142913828922
         limit = 2000000
 

@@ -23,7 +23,7 @@ class Problem01Test(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_solve(self):
-        """Test that solves the problem."""
+        """Test that confirms the answer to the problem."""
         count = 1000
         expected = 233168
 

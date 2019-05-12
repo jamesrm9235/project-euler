@@ -16,7 +16,7 @@ class Problem03Test(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_solve(self):
-        """Test that solves the problem."""
+        """Test that confirms the answer to the problem."""
         expected = 6857
         number = 600851475143
 

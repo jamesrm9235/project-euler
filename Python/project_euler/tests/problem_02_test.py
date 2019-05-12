@@ -8,7 +8,7 @@ class Problem02(unittest.TestCase):
     """Test fixture for problem 02."""
 
     def test_solve(self):
-        """Test that solves the problem."""
+        """Test that confirms the answer to the problem."""
         expected = 4613732
         maximum = 4000000
 
