@@ -1,11 +1,11 @@
-"""Tests for the primality utility module."""
+"""Tests for the prime_utils utility module."""
 
 import unittest
-from project_euler.utilities.primality import sieve_of_eratosthenes, is_prime
+from project_euler.utilities.prime_utils import sieve_of_eratosthenes, is_prime
 
 
-class PrimalityTest(unittest.TestCase):
-    """Test fixture for the primality utility module."""
+class PrimeUtilsTest(unittest.TestCase):
+    """Test fixture for the prime_utils utility module."""
 
     def test_sieve_of_eratosthenes(self):
         """Tests the Sieve of Eratosthenes implementation with a limit of 50."""

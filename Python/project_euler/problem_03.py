@@ -1,7 +1,7 @@
 """https://projecteuler.net/problem=3"""
 
 from math import ceil, sqrt
-from project_euler.utilities.primality import is_prime
+from project_euler.utilities.prime_utils import is_prime
 
 
 def solve(integer: int = 600851475143) -> int:

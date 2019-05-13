@@ -1,6 +1,6 @@
 """https://projecteuler.net/problem=7"""
 
-from project_euler.utilities.primality import is_prime
+from project_euler.utilities.prime_utils import is_prime
 
 
 def solve(count: int = 10001) -> int:
