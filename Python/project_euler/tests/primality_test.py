@@ -1,11 +1,20 @@
 """Tests for the primality utility module."""
 
 import unittest
-from project_euler.utilities.primality import is_prime
+from project_euler.utilities.primality import sieve_of_eratosthenes, is_prime
 
 
 class PrimalityTest(unittest.TestCase):
     """Test fixture for the primality utility module."""
+
+    def test_sieve_of_eratosthenes(self):
+        """Tests the Sieve of Eratosthenes implementation with a limit of 50."""
+        expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+        limit = 50
+
+        actual = sieve_of_eratosthenes(limit)
+
+        self.assertListEqual(expected, actual)
 
     def test_is_prime_with_lte_1(self):
         """Test that False is returned when the number is a number less than or equal to 1."""
