@@ -6,7 +6,7 @@ My solutions to [Project Euler ](https://projecteuler.net/) problems in C++, C#,
 |------|-------|---|--|------|
 |1|[Multiples of 3 and 5](https://projecteuler.net/problem=1)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |2|[Even Fibonacci numbers](https://projecteuler.net/problem=2)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|3|[Largest prime factor](https://projecteuler.net/problem=3)|:x:|:x:|:heavy_check_mark:|
+|3|[Largest prime factor](https://projecteuler.net/problem=3)|:x:|:heavy_check_mark:|:heavy_check_mark:|
 |4|[Largest palindrome product](https://projecteuler.net/problem=4)|:x:|:heavy_check_mark:|:heavy_check_mark:|
 |5|[Smallest multiple](https://projecteuler.net/problem=5)|:heavy_check_mark:|:x:|:heavy_check_mark:|
 |6|[Sum square difference](https://projecteuler.net/problem=6)|:heavy_check_mark:|:x:|:heavy_check_mark:|
