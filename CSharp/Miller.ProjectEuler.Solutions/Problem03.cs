@@ -1,4 +1,5 @@
 using System;
+using Miller.ProjectEuler.Solutions.Extensions;
 
 namespace Miller.ProjectEuler.Solutions
 {
@@ -19,45 +20,12 @@ namespace Miller.ProjectEuler.Solutions
             ulong limit = (ulong)Math.Ceiling(Math.Sqrt(number));
             for (ulong i = limit; i > 0; i--)
             {
-                if (number % i == 0 && IsPrime(i))
+                if (number % i == 0 && i.IsPrime())
                 {
                     return i;
                 }
             }
             throw new Exception($"No primes were found for number {number}.");
-        }
-
-        public static bool IsPrime(ulong number)
-        {
-            if (number <= 1)
-            {
-                return false;
-            }
-            if (number == 2 || number == 3)
-            {
-                return true;
-            }
-            if (number % 2 == 0 || number % 3 == 0)
-            {
-                return false;
-            }
-
-            ulong divisor = 5;
-            ulong limit = (ulong)Math.Ceiling(Math.Sqrt(number));
-            while (divisor <= limit)
-            {
-                if (number % divisor == 0)
-                {
-                    return false;
-                }
-                divisor += 2;
-                if (number % divisor == 0)
-                {
-                    return false;
-                }
-                divisor += 4;
-            }
-            return true;
         }
     }
 }
