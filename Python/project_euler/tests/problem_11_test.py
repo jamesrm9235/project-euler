@@ -1,8 +1,7 @@
 """https://projecteuler.net/problem=11"""
 
 import unittest
-from project_euler.problem_11 import (diagonal_ld, diagonal_lu, diagonal_rd, diagonal_ru,
-                                      down, left, product, right, up)
+from project_euler.problem_11 import Grid, product
 
 
 class Problem11Test(unittest.TestCase):
@@ -12,9 +11,10 @@ class Problem11Test(unittest.TestCase):
         """Test that the grid is traversed left-down diagonally from the position."""
         depth = 4
         expected = [26, 20, 99, 0]
+        grid = Grid()
         position = (8, 6)
 
-        actual = diagonal_ld(position, depth)
+        actual = grid.diagonal_ld(position, depth)
 
         self.assertListEqual(expected, actual)
 
@@ -22,9 +22,10 @@ class Problem11Test(unittest.TestCase):
         """Test that the grid is traversed left-up diagonally from the position."""
         depth = 4
         expected = [26, 2, 63, 60]
+        grid = Grid()
         position = (8, 6)
 
-        actual = diagonal_lu(position, depth)
+        actual = grid.diagonal_lu(position, depth)
 
         self.assertListEqual(expected, actual)
 
@@ -32,9 +33,10 @@ class Problem11Test(unittest.TestCase):
         """Test that the grid is traversed right-down diagonally from the position."""
         depth = 4
         expected = [26, 63, 78, 14]
+        grid = Grid()
         position = (8, 6)
 
-        actual = diagonal_rd(position, depth)
+        actual = grid.diagonal_rd(position, depth)
 
         self.assertListEqual(expected, actual)
 
@@ -42,9 +44,10 @@ class Problem11Test(unittest.TestCase):
         """Test that the grid is traversed right-up diagonally from the position."""
         depth = 4
         expected = [26, 75, 36, 56]
+        grid = Grid()
         position = (8, 6)
 
-        actual = diagonal_ru(position, depth)
+        actual = grid.diagonal_ru(position, depth)
 
         self.assertListEqual(expected, actual)
 
@@ -52,9 +55,10 @@ class Problem11Test(unittest.TestCase):
         """Test that the grid is traversed downwards from the position."""
         depth = 4
         expected = [26, 95, 97, 20]
+        grid = Grid()
         position = (8, 6)
 
-        actual = down(position, depth)
+        actual = grid.down(position, depth)
 
         self.assertListEqual(expected, actual)
 
@@ -62,9 +66,10 @@ class Problem11Test(unittest.TestCase):
         """Test that the grid is traversed to the left from the position."""
         depth = 4
         expected = [26, 10, 67, 23]
+        grid = Grid()
         position = (8, 6)
 
-        actual = left(position, depth)
+        actual = grid.left(position, depth)
 
         self.assertListEqual(expected, actual)
 
@@ -72,9 +77,10 @@ class Problem11Test(unittest.TestCase):
         """Test that the grid is traversed to the right from the position."""
         depth = 4
         expected = [26, 38, 40, 67]
+        grid = Grid()
         position = (8, 6)
 
-        actual = right(position, depth)
+        actual = grid.right(position, depth)
 
         self.assertListEqual(expected, actual)
 
@@ -82,9 +88,10 @@ class Problem11Test(unittest.TestCase):
         """Test that the grid is traversed upwards from the position."""
         depth = 4
         expected = [26, 44, 41, 69]
+        grid = Grid()
         position = (8, 6)
 
-        actual = up(position, depth)
+        actual = grid.up(position, depth)
 
         self.assertListEqual(expected, actual)
 
