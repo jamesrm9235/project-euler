@@ -1,6 +1,7 @@
 """https://projecteuler.net/problem=11"""
 
 import unittest
+from collections import namedtuple
 from project_euler.problem_11 import Grid, product
 
 
@@ -94,6 +95,18 @@ class Problem11Test(unittest.TestCase):
         actual = grid.up(position, depth)
 
         self.assertListEqual(expected, actual)
+
+    def test_up_with_depth_that_exceeds_grid(self):
+        """Test that up does not raise an IndexError when the depth exceeds the height of the grid."""
+        depth = 4
+        expected = []
+        grid = Grid()
+        parameterized_data = [(0, 0), (0, 1), (0, 2), (0, 3)]
+        for position in parameterized_data:
+            with self.subTest(i=position):
+                actual = grid.up(position, depth)
+
+                self.assertListEqual(expected, actual)
 
     def test_product(self):
         """Tests that the product is calculated from a List of ints."""

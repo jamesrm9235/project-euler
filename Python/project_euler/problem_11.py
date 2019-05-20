@@ -4,6 +4,9 @@
 from functools import reduce
 from typing import List
 
+def solve() -> int:
+    pass
+
 def product(numbers: List[int]) -> int:
     """Calculates the product of the integers in the list.
 
@@ -53,6 +56,7 @@ class Grid():
             [8, 0, 65, 91, 80, 50, 70, 21, 72, 95, 92, 57, 58, 40, 66, 69, 36, 16, 54, 48]
         ]
 
+
     def up(self, position: tuple, depth: int) -> List[int]:
         """Finds the adjacent numbers upward from the position in the grid.
 
@@ -63,8 +67,10 @@ class Grid():
         Returns:
             List[int] -- A list of the upward adjacent numbers.
         """
-        return [self.grid[position[0]][position[1] - i] for i in range(0, depth)]
-
+        x, y = position
+        if y - (depth - 1) < 0:
+            return []
+        return [self.grid[x][y - i] for i in range(0, depth)]
 
     def diagonal_ru(self, position: tuple, depth: int) -> List[int]:
         """Finds the right-up (ru) diagonally adjacent numbers from the position in the grid.
@@ -76,7 +82,8 @@ class Grid():
         Returns:
             List[int] -- A list of the right-up diagonally adjacent numbers.
         """
-        return [self.grid[position[0] + i][position[1] - i] for i in range(0, depth)]
+        x, y = position
+        return [self.grid[x + i][y - i] for i in range(0, depth)]
 
 
     def right(self, position: tuple, depth: int) -> List[int]:
@@ -89,7 +96,8 @@ class Grid():
         Returns:
             List[int] -- A list of the right adjacent numbers.
         """
-        return [self.grid[position[0] + i][position[1]] for i in range(0, depth)]
+        x, y = position
+        return [self.grid[x + i][y] for i in range(0, depth)]
 
 
     def diagonal_rd(self, position: tuple, depth: int) -> List[int]:
@@ -102,7 +110,8 @@ class Grid():
         Returns:
             List[int] -- A list of the right-down diagonally adjacent numbers.
         """
-        return [self.grid[position[0] + i][position[1] + i] for i in range(0, depth)]
+        x, y = position
+        return [self.grid[x + i][y + i] for i in range(0, depth)]
 
 
     def down(self, position: tuple, depth: int) -> List[int]:
@@ -115,7 +124,8 @@ class Grid():
         Returns:
             List[int] -- A list of the downward adjacent numbers.
         """
-        return [self.grid[position[0]][position[1] + i] for i in range(0, depth)]
+        x, y = position
+        return [self.grid[x][y + i] for i in range(0, depth)]
 
 
     def diagonal_ld(self, position: tuple, depth: int) -> List[int]:
@@ -128,7 +138,8 @@ class Grid():
         Returns:
             List[int] -- A list of the left-down diagonally adjacent numbers.
         """
-        return [self.grid[position[0] - i][position[1] + i] for i in range(0, depth)]
+        x, y = position
+        return [self.grid[x - i][y + i] for i in range(0, depth)]
 
 
     def left(self, position: tuple, depth: int) -> List[int]:
@@ -141,7 +152,8 @@ class Grid():
         Returns:
             List[int] -- A list of the left adjacent numbers.
         """
-        return [self.grid[position[0] - i][position[1]] for i in range(0, depth)]
+        x, y = position
+        return [self.grid[x - i][y] for i in range(0, depth)]
 
 
     def diagonal_lu(self, position: tuple, depth: int) -> List[int]:
@@ -154,4 +166,5 @@ class Grid():
         Returns:
             List[int] -- A list of the left-up diagonally adjacent numbers.
         """
-        return [self.grid[position[0] - i][position[1] - i] for i in range(0, depth)]
+        x, y = position
+        return [self.grid[x - i][y - i] for i in range(0, depth)]
