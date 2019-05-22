@@ -83,6 +83,8 @@ class Grid():
             List[int] -- A list of the right-up diagonally adjacent numbers.
         """
         x, y = position
+        if x + (depth - 1) < 0 or y - (depth - 1) < 0:
+            return []
         return [self.grid[x + i][y - i] for i in range(0, depth)]
 
 
@@ -97,6 +99,8 @@ class Grid():
             List[int] -- A list of the right adjacent numbers.
         """
         x, y = position
+        if x + (depth - 1) > 19:
+            return []
         return [self.grid[x + i][y] for i in range(0, depth)]
 
 
@@ -111,6 +115,8 @@ class Grid():
             List[int] -- A list of the right-down diagonally adjacent numbers.
         """
         x, y = position
+        if x + (depth - 1) > 19 or y + (depth - 1) > 19:
+            return []
         return [self.grid[x + i][y + i] for i in range(0, depth)]
 
 
@@ -125,6 +131,8 @@ class Grid():
             List[int] -- A list of the downward adjacent numbers.
         """
         x, y = position
+        if y + (depth - 1) > 19:
+            return []
         return [self.grid[x][y + i] for i in range(0, depth)]
 
 
@@ -139,6 +147,8 @@ class Grid():
             List[int] -- A list of the left-down diagonally adjacent numbers.
         """
         x, y = position
+        if x - (depth - 1) < 0 or y + (depth - 1) > 19:
+            return []
         return [self.grid[x - i][y + i] for i in range(0, depth)]
 
 
@@ -153,6 +163,8 @@ class Grid():
             List[int] -- A list of the left adjacent numbers.
         """
         x, y = position
+        if x - (depth - 1) < 0:
+            return []
         return [self.grid[x - i][y] for i in range(0, depth)]
 
 
@@ -167,4 +179,6 @@ class Grid():
             List[int] -- A list of the left-up diagonally adjacent numbers.
         """
         x, y = position
+        if x - (depth - 1) < 0 or y - (depth - 1) < 0:
+            return []
         return [self.grid[x - i][y - i] for i in range(0, depth)]
