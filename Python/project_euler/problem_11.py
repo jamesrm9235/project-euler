@@ -5,7 +5,21 @@ from functools import reduce
 from typing import List
 
 def solve() -> int:
-    pass
+    grid = Grid()
+    products = []
+    for i in range(0, 20):
+        for j in range(0, 20):
+            products.append(product(grid.up((i, j), 4)))
+            products.append(product(grid.diagonal_ru((i, j), 4)))
+            products.append(product(grid.right((i, j), 4)))
+            products.append(product(grid.diagonal_rd((i, j), 4)))
+            products.append(product(grid.down((i, j), 4)))
+            products.append(product(grid.diagonal_ld((i, j), 4)))
+            products.append(product(grid.left((i, j), 4)))
+            products.append(product(grid.diagonal_lu((i, j), 4)))
+
+    return max(products)
+
 
 def product(numbers: List[int]) -> int:
     """Calculates the product of the integers in the list.
@@ -16,6 +30,8 @@ def product(numbers: List[int]) -> int:
     Returns:
         int -- The calculated product.
     """
+    if not numbers:
+        return 0
     return reduce(lambda x, y: x * y, numbers)
 
 class Grid():
@@ -83,7 +99,7 @@ class Grid():
             List[int] -- A list of the right-up diagonally adjacent numbers.
         """
         x, y = position
-        if x + (depth - 1) < 0 or y - (depth - 1) < 0:
+        if x + (depth - 1) > 19 or y - (depth - 1) < 0:
             return []
         return [self.grid[x + i][y - i] for i in range(0, depth)]
 
@@ -182,3 +198,7 @@ class Grid():
         if x - (depth - 1) < 0 or y - (depth - 1) < 0:
             return []
         return [self.grid[x - i][y - i] for i in range(0, depth)]
+
+if __name__ == "__main__":
+    print("Problem 11")
+    print(solve())
