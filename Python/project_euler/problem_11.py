@@ -4,19 +4,35 @@
 from functools import reduce
 from typing import List
 
+
 def solve() -> int:
+    """Solves problem 11.
+
+    Iterates over each point in the grid and computes the product of
+    4-adjacent digits from the point in eight directions:
+
+    up, right-up diagonal, right, right-down diagonal,
+    down, left-down diagonal, left, left-up diagonal
+
+    Each product is stored in a list. When all points have been computed,
+    the greatest point from the list is returned.
+
+    Returns:
+        int -- The greatest product formed by 4 adjacent numbers in any direction.
+    """
     grid = Grid()
+    depth = 4
     products = []
     for i in range(0, 20):
         for j in range(0, 20):
-            products.append(product(grid.up((i, j), 4)))
-            products.append(product(grid.diagonal_ru((i, j), 4)))
-            products.append(product(grid.right((i, j), 4)))
-            products.append(product(grid.diagonal_rd((i, j), 4)))
-            products.append(product(grid.down((i, j), 4)))
-            products.append(product(grid.diagonal_ld((i, j), 4)))
-            products.append(product(grid.left((i, j), 4)))
-            products.append(product(grid.diagonal_lu((i, j), 4)))
+            products.append(product(grid.up((i, j), depth)))
+            products.append(product(grid.right_up((i, j), depth)))
+            products.append(product(grid.right((i, j), depth)))
+            products.append(product(grid.right_down((i, j), depth)))
+            products.append(product(grid.down((i, j), depth)))
+            products.append(product(grid.left_down((i, j), depth)))
+            products.append(product(grid.left((i, j), depth)))
+            products.append(product(grid.left_up((i, j), depth)))
 
     return max(products)
 
@@ -33,6 +49,7 @@ def product(numbers: List[int]) -> int:
     if not numbers:
         return 0
     return reduce(lambda x, y: x * y, numbers)
+
 
 class Grid():
     """Represents the 20x20 grid in problem 11.
@@ -72,7 +89,6 @@ class Grid():
             [8, 0, 65, 91, 80, 50, 70, 21, 72, 95, 92, 57, 58, 40, 66, 69, 36, 16, 54, 48]
         ]
 
-
     def up(self, position: tuple, depth: int) -> List[int]:
         """Finds the adjacent numbers upward from the position in the grid.
 
@@ -83,13 +99,13 @@ class Grid():
         Returns:
             List[int] -- A list of the upward adjacent numbers.
         """
-        x, y = position
-        if y - (depth - 1) < 0:
+        x_coord, y_coord = position
+        if (y_coord - depth) - 1 < 0:
             return []
-        return [self.grid[x][y - i] for i in range(0, depth)]
+        return [self.grid[x_coord][y_coord - i] for i in range(0, depth)]
 
-    def diagonal_ru(self, position: tuple, depth: int) -> List[int]:
-        """Finds the right-up (ru) diagonally adjacent numbers from the position in the grid.
+    def right_up(self, position: tuple, depth: int) -> List[int]:
+        """Finds the right-up diagonally adjacent numbers from the position in the grid.
 
         Arguments:
             position {tuple} -- The xy coordinates of the number to begin searching from.
@@ -98,11 +114,10 @@ class Grid():
         Returns:
             List[int] -- A list of the right-up diagonally adjacent numbers.
         """
-        x, y = position
-        if x + (depth - 1) > 19 or y - (depth - 1) < 0:
+        x_coord, y_coord = position
+        if (x_coord + depth) - 1 > 19 or (y_coord - depth) - 1 < 0:
             return []
-        return [self.grid[x + i][y - i] for i in range(0, depth)]
-
+        return [self.grid[x_coord + i][y_coord - i] for i in range(0, depth)]
 
     def right(self, position: tuple, depth: int) -> List[int]:
         """Finds the adjacent numbers to the right of the position in the grid.
@@ -114,14 +129,13 @@ class Grid():
         Returns:
             List[int] -- A list of the right adjacent numbers.
         """
-        x, y = position
-        if x + (depth - 1) > 19:
+        x_coord, y_coord = position
+        if (x_coord + depth) - 1 > 19:
             return []
-        return [self.grid[x + i][y] for i in range(0, depth)]
+        return [self.grid[x_coord + i][y_coord] for i in range(0, depth)]
 
-
-    def diagonal_rd(self, position: tuple, depth: int) -> List[int]:
-        """Finds the right-down (rd) diagonally adjacent numbers from the position in the grid.
+    def right_down(self, position: tuple, depth: int) -> List[int]:
+        """Finds the right-down diagonally adjacent numbers from the position in the grid.
 
         Arguments:
             position {tuple} -- The xy coordinates of the number to begin searching from.
@@ -130,11 +144,10 @@ class Grid():
         Returns:
             List[int] -- A list of the right-down diagonally adjacent numbers.
         """
-        x, y = position
-        if x + (depth - 1) > 19 or y + (depth - 1) > 19:
+        x_coord, y_coord = position
+        if (x_coord + depth) - 1 > 19 or (y_coord + depth) - 1 > 19:
             return []
-        return [self.grid[x + i][y + i] for i in range(0, depth)]
-
+        return [self.grid[x_coord + i][y_coord + i] for i in range(0, depth)]
 
     def down(self, position: tuple, depth: int) -> List[int]:
         """Finds the adjacent numbers downwards from the position in the grid.
@@ -146,14 +159,13 @@ class Grid():
         Returns:
             List[int] -- A list of the downward adjacent numbers.
         """
-        x, y = position
-        if y + (depth - 1) > 19:
+        x_coord, y_coord = position
+        if (y_coord + depth) - 1 > 19:
             return []
-        return [self.grid[x][y + i] for i in range(0, depth)]
+        return [self.grid[x_coord][y_coord + i] for i in range(0, depth)]
 
-
-    def diagonal_ld(self, position: tuple, depth: int) -> List[int]:
-        """Finds the left-down (ld) diagonally adjacent numbers from the position in the grid.
+    def left_down(self, position: tuple, depth: int) -> List[int]:
+        """Finds the left-down diagonally adjacent numbers from the position in the grid.
 
         Arguments:
             position {tuple} -- The xy coordinates of the number to begin searching from.
@@ -162,11 +174,10 @@ class Grid():
         Returns:
             List[int] -- A list of the left-down diagonally adjacent numbers.
         """
-        x, y = position
-        if x - (depth - 1) < 0 or y + (depth - 1) > 19:
+        x_coord, y_coord = position
+        if (x_coord - depth) - 1 < 0 or (y_coord + depth) - 1 > 19:
             return []
-        return [self.grid[x - i][y + i] for i in range(0, depth)]
-
+        return [self.grid[x_coord - i][y_coord + i] for i in range(0, depth)]
 
     def left(self, position: tuple, depth: int) -> List[int]:
         """Finds the adjacent numbers to the left of the position in the grid.
@@ -178,14 +189,13 @@ class Grid():
         Returns:
             List[int] -- A list of the left adjacent numbers.
         """
-        x, y = position
-        if x - (depth - 1) < 0:
+        x_coord, y_coord = position
+        if (x_coord - depth) - 1 < 0:
             return []
-        return [self.grid[x - i][y] for i in range(0, depth)]
+        return [self.grid[x_coord - i][y_coord] for i in range(0, depth)]
 
-
-    def diagonal_lu(self, position: tuple, depth: int) -> List[int]:
-        """Finds the left-up (lu) diagonally adjacent numbers from the position in the grid.
+    def left_up(self, position: tuple, depth: int) -> List[int]:
+        """Finds the left-up diagonally adjacent numbers from the position in the grid.
 
         Arguments:
             position {tuple} -- The xy coordinates of the number to begin searching from.
@@ -194,11 +204,7 @@ class Grid():
         Returns:
             List[int] -- A list of the left-up diagonally adjacent numbers.
         """
-        x, y = position
-        if x - (depth - 1) < 0 or y - (depth - 1) < 0:
+        x_coord, y_coord = position
+        if (x_coord - depth) - 1 < 0 or (y_coord - depth) - 1 < 0:
             return []
-        return [self.grid[x - i][y - i] for i in range(0, depth)]
-
-if __name__ == "__main__":
-    print("Problem 11")
-    print(solve())
+        return [self.grid[x_coord - i][y_coord - i] for i in range(0, depth)]
