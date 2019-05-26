@@ -10,7 +10,7 @@ My solutions to [Project Euler ](https://projecteuler.net/) problems in C++, C#,
 |4|[Largest palindrome product](https://projecteuler.net/problem=4)|:x:|:heavy_check_mark:|:heavy_check_mark:|
 |5|[Smallest multiple](https://projecteuler.net/problem=5)|:heavy_check_mark:|:x:|:heavy_check_mark:|
 |6|[Sum square difference](https://projecteuler.net/problem=6)|:heavy_check_mark:|:x:|:heavy_check_mark:|
-|7|[10001st prime](https://projecteuler.net/problem=7)|:x:|:x:|:heavy_check_mark:|
+|7|[10001st prime](https://projecteuler.net/problem=7)|:x:|:heavy_check_mark:|:heavy_check_mark:|
 |8|[Largest product in a series](https://projecteuler.net/problem=8)|:x:|:x:|:heavy_check_mark:|
 |10|[Summation of primes](https://projecteuler.net/problem=10)|:x:|:x:|:heavy_check_mark:|
 |11|[Largest product in a grid](https://projecteuler.net/problem=11)|:x:|:x:|:heavy_check_mark:|
