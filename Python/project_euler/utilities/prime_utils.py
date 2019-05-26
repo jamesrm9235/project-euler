@@ -4,35 +4,6 @@ from math import ceil, sqrt
 from typing import List
 
 
-def sieve_of_eratosthenes(limit: int) -> List[int]:
-    """Finds all primes up to the limit using the Sieve of Eratosthenes.
-
-    Arguments:
-        limit {int} -- The primes beneath this integer will be returned.
-
-    Returns:
-        List[int] -- A list of primes less than the limit.
-    """
-    sieve = [i for i in range(2, limit + 1)]
-    primes = []
-    prime = 2
-
-    while prime ** 2 < limit:  # Multiples below prime squared will be removed.
-        for i in range(prime, limit + 1):
-            multiple = prime * i
-            if multiple > limit:
-                break
-            if multiple in sieve:
-                sieve.remove(multiple)
-
-        # TODO Append to primes outside of while loop.
-        primes.append(sieve[0])
-        sieve.pop(0)
-        prime = sieve[0]
-    primes.extend(sieve)
-    return primes
-
-
 def is_prime(integer: int) -> bool:
     """Checks whether the integer is a prime by trial division.
 
@@ -95,3 +66,32 @@ def prime_factorization(integer: int) -> List[int]:
                 factors.append(odd_divisor)
         odd_divisor += 2
     return factors
+
+
+def sieve_of_eratosthenes(limit: int) -> List[int]:
+    """Finds all primes up to the limit using the Sieve of Eratosthenes.
+
+    Arguments:
+        limit {int} -- The primes beneath this integer will be returned.
+
+    Returns:
+        List[int] -- A list of primes less than the limit.
+    """
+    sieve = [i for i in range(2, limit + 1)]
+    primes = []
+    prime = 2
+
+    while prime ** 2 < limit:  # Multiples below prime squared will be removed.
+        for i in range(prime, limit + 1):
+            multiple = prime * i
+            if multiple > limit:
+                break
+            if multiple in sieve:
+                sieve.remove(multiple)
+
+        # TODO Append to primes outside of while loop.
+        primes.append(sieve[0])
+        sieve.pop(0)
+        prime = sieve[0]
+    primes.extend(sieve)
+    return primes
