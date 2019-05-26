@@ -1,7 +1,9 @@
 """Tests for the prime_utils utility module."""
 
 import unittest
-from project_euler.utilities.prime_utils import sieve_of_eratosthenes, is_prime
+from project_euler.utilities.prime_utils import (is_prime,
+                                                 prime_factorization,
+                                                 sieve_of_eratosthenes)
 
 
 class PrimeUtilsTest(unittest.TestCase):
@@ -48,3 +50,12 @@ class PrimeUtilsTest(unittest.TestCase):
                 actual = is_prime(number)
 
                 self.assertFalse(actual)
+
+    def test_prime_factorization(self):
+        """Tests that 232792560 is decomposed to its prime factors."""
+        expected = [2, 2, 2, 2, 3, 3, 5, 7, 11, 13, 17, 19]
+        integer = 232792560
+
+        actual = prime_factorization(integer)
+
+        self.assertEqual(expected, actual)

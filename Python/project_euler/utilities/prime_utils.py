@@ -63,3 +63,35 @@ def is_prime(integer: int) -> bool:
             return False
         divisor += 4  # Set to a number one less than a multiple of six.
     return True
+
+
+def prime_factorization(integer: int) -> List[int]:
+    """Decomposes an integer into its prime factors.
+
+    # TODO: Find the limit.
+    This function performs reasonably well for small numbers.
+    It finds an integer's prime factors by first dividing the
+    integer until it is odd. Then, it will divide it by odd
+    prime numbers.
+
+    Arguments:
+        n {int} -- The integer to factorize.
+
+    Returns:
+        List[int] -- A list of the integer's prime factors.
+    """
+    factors = []
+    # Divide until n is odd.
+    if integer % 2 == 0:
+        while integer % 2 == 0:
+            integer /= 2
+            factors.append(2)
+    # Divide until no longer divisible by odd integers
+    odd_divisor = 3
+    while integer != 1:
+        if integer % odd_divisor == 0 and is_prime(odd_divisor):
+            while integer % odd_divisor == 0:
+                integer /= odd_divisor
+                factors.append(odd_divisor)
+        odd_divisor += 2
+    return factors
