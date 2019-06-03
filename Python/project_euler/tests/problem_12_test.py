@@ -44,7 +44,7 @@ class Problem12Test(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_triangular_number(self):
-        """Tests that the first seven triangl numbers are generated."""
+        """Tests that the first seven triangle numbers are generated."""
         Data = namedtuple("Data", "n expected")
         parameterized_data = [
             Data(n=1, expected=1),
