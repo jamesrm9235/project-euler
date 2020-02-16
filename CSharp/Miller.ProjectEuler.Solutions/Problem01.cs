@@ -1,54 +1,35 @@
 using System;
-using System.Linq;
 
 namespace Miller.ProjectEuler.Solutions
 {
     /// <summary>
     /// https://projecteuler.net/problem=1
     /// </summary>
-    public static class Problem01
+    public sealed class Problem01 : IProblem
     {
-        /// <summary>
-        /// Uses Linq to compute the sum of all the multiples of 3 or 5 less than the count.
-        /// </summary>
-        /// <param name="count">The number of integers to count. Must be a natural number greater than zero.</param>
-        /// <returns>The computed sum.</returns>
-        /// <exception cref="ArgumentException">Thrown if count is less than or equal to zero.</exception>
-        public static int SolveWithLinq(int count)
-        {
-            if (count <= 0)
-            {
-                throw new ArgumentException($"{nameof(count)} must be a natural number greater than zero.");
-            }
+        public string Name => "Multiples of 3 and 5";
 
-            var multiples = Enumerable
-            .Range(1, count - 1)
-            .Where(x => IsMultipleOf(x, 3) || IsMultipleOf(x, 5));
-            return multiples.Sum();
+        private int _count;
+        public Problem01(int count)
+        {
+            _count = count;
         }
 
         /// <summary>
         /// Uses a loop to compute the sum of all the multiples of 3 or 5 less than the count.
         /// </summary>
-        /// <param name="count">The number of integers to count. Must be a natural number greater than zero.</param>
-        /// <returns>The computed sum.</returns>
-        /// <exception cref="ArgumentException">Thrown if count is less than or equal to zero.</exception>
-        public static int SolveWithLoop(int count)
+        /// <returns>The computed sum</returns>
+        public string Solve()
         {
-            if (count <= 0)
-            {
-                throw new ArgumentException($"{nameof(count)} must be a natural number greater than zero.");
-            }
-
             var result = 0;
-            for (int i = 1; i < count; i++)
+            for (int i = 1; i < _count; i++)
             {
                 if (IsMultipleOf(i, 3) || IsMultipleOf(i, 5))
                 {
                     result += i;
                 }
             }
-            return result;
+            return result.ToString();
         }
 
         /// <summary>
@@ -58,7 +39,7 @@ namespace Miller.ProjectEuler.Solutions
         /// <param name="y">The integer to divide x by. Cannot be zero.</param>
         /// <returns>True if x is a multiple of y and false otherwise.</returns>
         /// <exception cref="ArgumentException">Thrown if either parameter is zero.</exception>
-        public static bool IsMultipleOf(int x, int y)
+        private bool IsMultipleOf(int x, int y)
         {
             if (x == 0)
             {
