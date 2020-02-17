@@ -3,31 +3,33 @@ using NUnit.Framework;
 
 namespace TesMiller.ProjectEuler.Solutions.Teststs
 {
-    [TestFixture, Description("https://projecteuler.net/problem=3")]
+    [TestFixture]
     public class Problem03Test
     {
         [Test]
-        public void Solve_Returns29_WhenSolvingExample()
+        public void Solve_ReturnsSolution_ForProblem03Sample()
         {
             // Arrange
-            ulong expected = 29;
+            var expected = "29";
             ulong number = 13195;
+            var sut = new Problem03(number);
         
             // Act
-            var actual = Problem03.Solve(number);
+            var actual = sut.Solve();
         
             // Assert
             Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void Solve_Returns6857_WhenSolvingProblem()
+        public void Solve_ReturnsSolution_ForProblem03()
         {
             // Arrange
-            ulong expected = 6857;
+            var expected = "6857";
+            var sut = new Problem03();
         
             // Act
-            var actual = Problem03.Solve();
+            var actual = sut.Solve();
         
             // Assert
             Assert.AreEqual(expected, actual);

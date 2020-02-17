@@ -10,7 +10,8 @@ namespace Miller.ProjectEuler.Solutions
         public string Name => "Multiples of 3 and 5";
 
         private int _count;
-        public Problem01(int count)
+        
+        public Problem01(int count = 1000)
         {
             _count = count;
         }

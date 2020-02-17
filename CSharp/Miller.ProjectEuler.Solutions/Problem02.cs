@@ -3,22 +3,27 @@ namespace Miller.ProjectEuler.Solutions
     /// <summary>
     /// https://projecteuler.net/problem=2
     /// </summary>
-    public static class Problem02
+    public sealed class Problem02 : IProblem
     {
-        /// <summary>
-        /// Solves problem 2 by generating terms in the Fibonacci series up to the max term,
-        /// and if a term is even, it is added to a running sum of even terms.
-        /// </summary>
-        /// <param name="maxTerm">The term that the greatest term in the Fibonacci series must not exceed.</param>
-        /// <returns>The sum of all even terms in the Fibonacci series.</returns>
-        public static int Solve(int maxTerm)
-        {
-            var result = 0;
+        public string Name => "Even Fibonacci numbers";
 
-            var previousTerm = 1;
-            var leadingTerm = 2;
-            int intermediateTerm;
-            while (leadingTerm < maxTerm)
+        private int _limit;
+
+        public Problem02(int limit = 4_000_000)
+        {
+            _limit = limit;
+        }
+
+        /// <summary>
+        /// Solves problem 2 by generating terms in the Fibonacci series up to the limit,
+        /// and if a term is even, it is added to a running sum.
+        /// </summary>
+        /// <returns>Sum of all even terms in the Fibonacci series</returns>
+        public string Solve()
+        {
+            int result = 0;
+            int previousTerm = 1, leadingTerm = 2, intermediateTerm;
+            while (leadingTerm < _limit)
             {
                 if (leadingTerm % 2 == 0)
                 {
@@ -29,7 +34,7 @@ namespace Miller.ProjectEuler.Solutions
                 previousTerm = intermediateTerm;
             }
 
-            return result;
+            return result.ToString();
         }
     }
 }

@@ -39,7 +39,19 @@ namespace Miller.ProjectEuler.SolutionRunner
                 {
                     case 1:
                         {
-                            return new Problem01(count: 1000);
+                            return new Problem01();
+                        }
+                    case 2:
+                        {
+                            return new Problem02();
+                        }
+                    case 3:
+                        {
+                            return new Problem03();
+                        }
+                    case 4:
+                        {
+                            return new Problem04();
                         }
                     default:
                         {

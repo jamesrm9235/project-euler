@@ -2,12 +2,11 @@ using NUnit.Framework;
 
 namespace Miller.ProjectEuler.Solutions.Tests
 {
-    [Description("https://projecteuler.net/problem=1")]
     [TestFixture]
     public class Problem01Test
     {
         [Test]
-        public void Solve_Returns23_WhenCountIs10()
+        public void Solve_Returns23_ForProblem01Sample()
         {
             // Arrange
             int count = 10;
@@ -22,7 +21,7 @@ namespace Miller.ProjectEuler.Solutions.Tests
         }
 
         [Test]
-        public void Solve_Returns233168_WhenCountIs1000()
+        public void Solve_ReturnsSolution_ForProblem01()
         {
             // Arrange
             int count = 1000;

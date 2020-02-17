@@ -2,18 +2,18 @@ using NUnit.Framework;
 
 namespace Miller.ProjectEuler.Solutions.Tests
 {
-    [TestFixture, Description("https://projecteuler.net/problem=2")]
+    [TestFixture]
     public class Problem02Test
     {
         [Test]
-        public void FibonacciSeries_Returns4613732_WhenMaxTermIsFourMillion()
+        public void Solve_ReturnsSolution_ForProblem02()
         {
             // Arrange
-            var expected = 4613732;
-            var maxTerm = 4000000;
+            var expected = "4613732";
+            var sut = new Problem02();
         
             // Act
-            var actual = Problem02.Solve(maxTerm);
+            var actual = sut.Solve();
         
             // Assert
             Assert.AreEqual(expected, actual);
