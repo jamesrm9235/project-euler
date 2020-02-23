@@ -56,7 +56,8 @@ namespace Miller.ProjectEuler.SolutionRunner
                         }
                     case 22:
                         {
-                            using (var reader = new StreamReader("../../resources/p022_names.txt"))
+                            Stream res = GetEmbeddedResource("Resources.p022_names.txt");
+                            using (var reader = new StreamReader(res))
                             {
                                 string text = reader.ReadToEnd();
                                 return new Problem22(text);
@@ -68,6 +69,11 @@ namespace Miller.ProjectEuler.SolutionRunner
                         }
                 }
             }
+        }
+
+        private static Stream GetEmbeddedResource(string fileName)
+        {
+            return System.Reflection.Assembly.GetEntryAssembly().GetManifestResourceStream($"{typeof(Program).Namespace}.{fileName}");
         }
 
         private sealed class NullProblem : IProblem

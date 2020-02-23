@@ -1,8 +1,8 @@
 # Project Euler
-My solutions to [Project Euler ](https://projecteuler.net/) problems in C++, C%23, and Python.
+My solutions to [Project Euler ](https://projecteuler.net/) problems in C++, C#, and Python.
 
 # Solved Problems
-|Number|Problem|C++|C%23|Python|
+|Number|Problem|C++|C#|Python|
 |------|-------|---|--|------|
 |1|[Multiples of 3 and 5](https://projecteuler.net/problem=1)|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/C++/problem_1.cpp)|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/C%23/Miller.ProjectEuler.Solutions/Problem01.cs)|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/Python/project_euler/problem_01.py)|
 |2|[Even Fibonacci numbers](https://projecteuler.net/problem=2)|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/C++/problem_2.cpp)|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/C%23/Miller.ProjectEuler.Solutions/Problem02.cs)|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/Python/project_euler/problem_02.py)|

@@ -1,4 +1,5 @@
 using System.IO;
+using System.Reflection;
 using NUnit.Framework;
 
 namespace Miller.ProjectEuler.Solutions.Tests
@@ -25,7 +26,8 @@ namespace Miller.ProjectEuler.Solutions.Tests
         [Test]
         public void Solve_ReturnsSolution_ForProblem22()
         {
-            using (StreamReader reader = new StreamReader("../../../../../resources/p022_names.txt"))
+            Stream res = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{typeof(Problem22Test).Namespace}.Resources.p022_names.txt");
+            using (StreamReader reader = new StreamReader(res))
             {
                 // Arrange
                 var expected = "871198282";
