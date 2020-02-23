@@ -1,5 +1,4 @@
-using System;
-using Miller.ProjectEuler.Solutions.Extensions;
+using Miller.ProjectEuler.Solutions.Utils;
 
 namespace Miller.ProjectEuler.Solutions
 {

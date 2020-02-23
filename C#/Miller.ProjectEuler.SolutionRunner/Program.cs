@@ -1,6 +1,7 @@
 ﻿using Miller.ProjectEuler.Solutions;
 using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace Miller.ProjectEuler.SolutionRunner
 {
@@ -12,7 +13,7 @@ namespace Miller.ProjectEuler.SolutionRunner
             Console.Write("Enter problem number: ");
             if (uint.TryParse(Console.ReadLine(), out uint number))
             {
-                IProblem problem = ProblemFactory.GetProblem(number);
+                IProblem problem = ProblemFactory.Create(number);
 
                 Stopwatch timer = new Stopwatch();
                 timer.Start();
@@ -33,7 +34,7 @@ namespace Miller.ProjectEuler.SolutionRunner
 
         private static class ProblemFactory
         {
-            public static IProblem GetProblem(uint number)
+            public static IProblem Create(uint number)
             {
                 switch (number)
                 {
@@ -52,6 +53,14 @@ namespace Miller.ProjectEuler.SolutionRunner
                     case 4:
                         {
                             return new Problem04();
+                        }
+                    case 22:
+                        {
+                            using (var reader = new StreamReader("../../resources/p022_names.txt"))
+                            {
+                                string text = reader.ReadToEnd();
+                                return new Problem22(text);
+                            }
                         }
                     default:
                         {

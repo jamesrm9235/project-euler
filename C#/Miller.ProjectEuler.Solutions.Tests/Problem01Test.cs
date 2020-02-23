@@ -6,7 +6,7 @@ namespace Miller.ProjectEuler.Solutions.Tests
     public class Problem01Test
     {
         [Test]
-        public void Solve_Returns23_ForProblem01Sample()
+        public void Solve_ReturnsSolution_ForProblem01Sample()
         {
             // Arrange
             int count = 10;

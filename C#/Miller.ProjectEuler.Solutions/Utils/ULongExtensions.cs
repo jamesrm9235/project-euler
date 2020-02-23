@@ -1,8 +1,8 @@
 using System;
 
-namespace Miller.ProjectEuler.Solutions.Extensions
+namespace Miller.ProjectEuler.Solutions.Utils
 {
-    public static class UnsignedLongExtensions
+    public static class ULongExtensions
     {
         /// <summary>
         /// Checks whether the number is a prime by trial division.
