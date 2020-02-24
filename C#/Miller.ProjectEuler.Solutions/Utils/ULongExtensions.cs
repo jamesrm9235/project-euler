@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Miller.ProjectEuler.Solutions.Utils
 {
@@ -40,6 +41,35 @@ namespace Miller.ProjectEuler.Solutions.Utils
                 divisor += 4;
             }
             return true;
+        }
+
+        public static List<ulong> PrimeFactorization(this ulong number)
+        {
+            var factors = new List<ulong>();
+
+            if (number % 2 == 0)
+            {
+                while (number % 2 == 0)
+                {
+                    number /= 2;
+                    factors.Add(2);
+                }
+            }
+
+            ulong oddDivisor = 3;
+            while (number != 1)
+            {
+                if (number % oddDivisor == 0 && oddDivisor.IsPrime())
+                {
+                    while (number % oddDivisor == 0)
+                    {
+                         number /= oddDivisor;
+                         factors.Add(oddDivisor);
+                    }
+                }
+                oddDivisor += 2;
+            }
+            return factors;
         }
     }
 }
