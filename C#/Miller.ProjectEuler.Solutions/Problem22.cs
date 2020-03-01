@@ -1,4 +1,5 @@
 using System.Linq;
+using Miller.ProjectEuler.Solutions.Utils;
 
 namespace Miller.ProjectEuler.Solutions
 {
@@ -32,21 +33,10 @@ namespace Miller.ProjectEuler.Solutions
 
             for (int i = 0; i < nameList.Count; i++)
             {
-                totalScore += ScoreName(nameList[i], i + 1);
+                totalScore += nameList[i].AlphabeticalSum() * (i + 1);
             }
 
             return totalScore.ToString();
-        }
-
-        private int ScoreName(string name, int index)
-        {
-            int result = 0;
-            foreach (var c in name)
-            {
-                // zero-based indexing must be considered when retrieving the actual value of character in alphabet
-                result += Alphabet.IndexOf(c) + 1;
-            }
-            return result * index;
         }
     }
 }

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources/p022_names.txt" />
+    <EmbeddedResource Include="Resources/p042_words.txt" />
   </ItemGroup>
 
   <PropertyGroup>

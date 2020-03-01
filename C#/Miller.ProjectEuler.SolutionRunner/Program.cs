@@ -67,6 +67,15 @@ namespace Miller.ProjectEuler.SolutionRunner
                                 return new Problem22(text);
                             }
                         }
+                    case 42:
+                        {
+                            Stream res = GetEmbeddedResource("Resources.p042_words.txt");
+                            using (var reader = new StreamReader(res))
+                            {
+                                string text = reader.ReadToEnd();
+                                return new Problem42(text);
+                            }
+                        }
                     default:
                         {
                             return new NullProblem();
