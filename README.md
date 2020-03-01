@@ -23,3 +23,4 @@ My solutions to [Project Euler ](https://projecteuler.net/) problems in C++, C#,
 |20|[Factorial digit sum](https://projecteuler.net/problem=20)|:x:|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/C%23/Miller.ProjectEuler.Solutions/Problem20.cs)|:x:|
 |22|[Names score](https://projecteuler.net/problem=22)|:x:|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/C%23/Miller.ProjectEuler.Solutions/Problem22.cs)|:x:|
 |25|[1000-digit Fibonacci number](https://projecteuler.net/problem=25)|:x:|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/C%23/Miller.ProjectEuler.Solutions/Problem25.cs)|:x:|
+|42|[Coded triangle numbers](https://projecteuler.net/problem=42)|:x:|:heavy_check_mark: [source](https://github.com/jamesrm9235/project-euler/blob/master/C%23/Miller.ProjectEuler.Solutions/Problem42.cs)|:x:|
