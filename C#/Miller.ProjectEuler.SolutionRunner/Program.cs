@@ -58,6 +58,10 @@ namespace Miller.ProjectEuler.SolutionRunner
                         {
                             return new Problem05();
                         }
+                    case 9:
+                        {
+                            return new Problem09();
+                        }
                     case 22:
                         {
                             Stream res = GetEmbeddedResource("Resources.p022_names.txt");
